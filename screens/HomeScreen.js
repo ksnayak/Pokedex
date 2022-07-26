@@ -60,8 +60,7 @@ const HomeScreen = () => {
                 marginVertical: 20,
               }}>
               <Icon>
-                {/* <Generation /> */}
-                <Filter />
+                <Generation color={textColor.black} />
               </Icon>
             </View>
             <Text style={commonStyles.heading}>Pokédex</Text>
