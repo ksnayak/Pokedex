@@ -3,26 +3,34 @@ import React from 'react';
 import commonStyles from '../styles/commonStyles';
 import {deviceWidth, scale} from '../configs/size';
 import {backgroundColors} from '../configs/colors';
+import Tag from './Tag';
 
 const Card = ({data}) => {
   const type = data.types[0].type.name;
   return (
     <View style={{...styles.card, backgroundColor: backgroundColors[type]}}>
-      <View style={{padding: 15, paddingRight: 0, width: deviceWidth / 1.8}}>
-        <View style={{position: 'absolute', top: 5, right: 0}}>
+      <View
+        style={{
+          padding: scale(15),
+          paddingRight: scale(0),
+          width: deviceWidth / scale(1.8),
+        }}>
+        <View style={{position: 'absolute', top: scale(5), right: scale(0)}}>
           <Image
             source={require('../assets/images/dotsCard.png')}
             style={{width: scale(100), height: scale(40)}}
           />
         </View>
 
-        <Text style={commonStyles.number}># {data.id}</Text>
+        <Text style={[commonStyles.number, {marginVertical: scale(5)}]}>
+          # {data.id}
+        </Text>
         <Text style={commonStyles.title}>{data.name}</Text>
-        {data.types.map((type, index) => (
-          <Text key={index} style={commonStyles.subHeading}>
-            {type.type.name}
-          </Text>
-        ))}
+        <View style={commonStyles.row}>
+          {data.types.map(type => (
+            <Tag type={type.type.name} />
+          ))}
+        </View>
       </View>
       <ImageBackground
         source={require('../assets/images/Pokeball_card.png')}
