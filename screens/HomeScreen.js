@@ -43,7 +43,7 @@ const SearchInput = () => {
   );
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
@@ -93,15 +93,15 @@ const HomeScreen = () => {
       <View
         style={{
           ...commonStyles.container,
-          paddingBottom: scale(50),
+          paddingBottom: scale(80),
           marginTop: scale(10),
         }}>
         <FlatList
           contentContainerStyle={{paddingBottom: scale(20)}}
           showsVerticalScrollIndicator={false}
           data={pokemon}
-          renderItem={({item}) => <Card data={item} />}
-          keyExtractor={item => item.id}
+          renderItem={({item}) => <Card data={item} navigation={navigation} />}
+          keyExtractor={item => item.name}
         />
       </View>
     </>

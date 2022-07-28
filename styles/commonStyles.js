@@ -38,4 +38,11 @@ export default StyleSheet.create({
     fontWeight: '700',
     color: textColor.number,
   },
+  detailsContainer: {
+    flex: scale(1),
+    backgroundColor: 'white',
+    padding: scale(30),
+    borderTopEndRadius: scale(20),
+    borderTopStartRadius: scale(20),
+  },
 });
